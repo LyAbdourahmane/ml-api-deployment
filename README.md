@@ -15,7 +15,7 @@ Projet complet pour entraîner, servir et tester un modèle de régression (XGBo
 
 ## Démarrage rapide (local)
 
-### 1️⃣ Cloner et installer
+### Cloner et installer
 
 ```bash
 git clone <URL_DU_REPO>
@@ -23,7 +23,7 @@ cd Déployez_un_modèle_de_Machine_Learning
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Configurer l’environnement
+### Configurer l’environnement
 
 Créer un fichier `.env` à la racine :
 
@@ -42,21 +42,21 @@ API_BASE_URL=http://localhost:8000
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/prediction_emission
 ```
 
-### 3️⃣ Lancer PostgreSQL et créer les tables
+### Lancer PostgreSQL et créer les tables
 
 ```bash
 createdb prediction_emission
 python infra/create_db.py
 ```
 
-### 4️⃣ Entraîner le modèle
+### Entraîner le modèle
 
 ```bash
 python src/train_and_save.py
 # Génère : models/model_emissions_co2.joblib et models/model_metadata.joblib
 ```
 
-### 5️⃣ Démarrer l’API
+### Démarrer l’API
 
 ```bash
 uvicorn app.API:app --reload --host 0.0.0.0 --port 8000
@@ -64,7 +64,7 @@ uvicorn app.API:app --reload --host 0.0.0.0 --port 8000
 
 Docs : [http://localhost:8000/docs](http://localhost:8000/docs)
 
-### 6️⃣ Lancer l’interface Gradio
+### Lancer l’interface Gradio
 
 ```bash
 python gradio_app.py
@@ -74,7 +74,7 @@ Interface : [http://localhost:7860](http://localhost:7860)
 
 ---
 
-## 🐳 Docker (API ou Gradio)
+## Docker (API ou Gradio)
 
 ### Construire l’image
 
