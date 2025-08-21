@@ -14,13 +14,13 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.DB_NAME }}
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1234
+          POSTGRES_DB: prediction_emission
         ports:
           - 5432:5432
         options: >-
-          --health-cmd="pg_isready -U ${{ secrets.DB_USER }} -d ${{ secrets.DB_NAME }}"
+          --health-cmd="pg_isready -U postgres -d prediction_emission"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=10
@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
           pip install python-dotenv
 
-      - name: Set environment variables for CI
+      - name: Inject environment variables from secrets
         run: |
           echo "DB_HOST=postgres" >> $GITHUB_ENV
           echo "DB_PORT=5432" >> $GITHUB_ENV
