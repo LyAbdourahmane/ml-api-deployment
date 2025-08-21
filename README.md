@@ -18,7 +18,7 @@ Projet complet pour entraîner, servir et tester un modèle de régression (XGBo
 ### Cloner et installer
 
 ```bash
-git clone <URL_DU_REPO>
+git clone https://github.com/LyAbdourahmane/ml-api-deployment
 cd Déployez_un_modèle_de_Machine_Learning
 pip install -r requirements.txt
 ```
