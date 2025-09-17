@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+mon_env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Build / data
+dist/
+build/
+*.csv
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Docker
+*.log
+
+# Models (si gros fichiers)
+models/*.joblib
+!models/.gitkeep
