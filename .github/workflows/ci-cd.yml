@@ -15,7 +15,7 @@ jobs:
     name: Run tests (Postgres)
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: ${{ github.workspace }}   # <-- rend app/, infra/, src/ importables sans __init__.py
+      PYTHONPATH: ${{ github.workspace }}   
 
     services:
       postgres:
@@ -90,7 +90,7 @@ jobs:
     needs: test
     if: ${{ needs.test.result == 'success' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     env:
-      # Configurer ces secrets dans GitHub: Settings > Secrets and variables > Actions
+      # Configurer des secrets dans GitHub: Settings > Secrets and variables > Actions (pour ne pas que j'oublie)
       RENDER_DEPLOY_HOOK_API: ${{ secrets.RENDER_DEPLOY_HOOK_API }}
       RENDER_DEPLOY_HOOK_GRADIO: ${{ secrets.RENDER_DEPLOY_HOOK_GRADIO }}
     steps:
@@ -101,7 +101,7 @@ jobs:
           curl -fsS -X POST "$RENDER_DEPLOY_HOOK_API"
           echo "OK: API deploy triggered."
 
-      - name: Trigger Render deploy hook (Gradio)  # optionnel si tu as un service Gradio
+      - name: Trigger Render deploy hook (Gradio)  # optionnel pour le service gradio
         if: ${{ env.RENDER_DEPLOY_HOOK_GRADIO != '' }}
         run: |
           echo "Triggering Render Gradio deploy..."
