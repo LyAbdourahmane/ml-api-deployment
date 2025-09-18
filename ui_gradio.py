@@ -11,7 +11,7 @@ API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000").rstrip("/")
 API_KEY = os.getenv("API_KEY")  # facultatif (si AUTH activée côté API)
 
 # --- mes informations ---
-AUTHOR_NAME = "Abdourahamane LY"
+AUTHOR_NAME = "Par Abdourahamane LY"
 AUTHOR_EMAIL = "lyabdourahamane66@gmail.com"
 AUTHOR_LINKEDIN = "https://www.linkedin.com/in/abdourahamane-ly-ab322a35b/"
 AUTHOR_GITHUB = "https://github.com/LyAbdourahmane"
@@ -108,7 +108,7 @@ with gr.Blocks(title="Prédiction CO₂ des Bâtiments") as demo:
     with gr.Row():
         primary_type = gr.Dropdown(property_types, label="Type de Propriété Principal", value="Small- and Mid-Sized Office")
         year_built = gr.Number(label="Année de Construction", value=2000, minimum=1800, maximum=datetime.now().year)
-        num_buildings = gr.Number(label="Nombre de Bâtiments", value=1, minimum=0)
+        num_buildings = gr.Number(label="Nombre de Bâtiments", value=1, minimum=1)
 
     with gr.Row():
         num_floors = gr.Number(label="Nombre d'Étages", value=4, minimum=0)
@@ -133,7 +133,7 @@ with gr.Blocks(title="Prédiction CO₂ des Bâtiments") as demo:
         gr.Markdown(
             "- **Stack** : FastAPI, SQLAlchemy, PostgreSQL, scikit-learn/XGBoost, Gradio\n"
             "- **But** : démo de prédiction CO₂ et traçabilité (inputs/outputs en base)\n"
-            "- **Contexte** : modèle entraîné sur données Seattle — prudence hors distribution\n"
+            "- **Contexte** : modèle entraîné sur données de la ville de Seattle — prudence hors distribution\n"
         )
 
 if __name__ == "__main__":
