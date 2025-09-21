@@ -15,7 +15,6 @@
 - [Utilisation](#-utilisation)
 - [API Documentation](#-api-documentation)
 - [Interface Web](#-interface-web)
-- [Déploiement](#-déploiement)
 - [Sécurité](#-sécurité)
 - [Tests](#-tests)
 - [Contribution](#-contribution)
